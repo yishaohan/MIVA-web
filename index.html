@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Paper Project</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="sidebar">
     <a href="#Abstract" class="level-1">Abstract</a>
@@ -50,28 +52,84 @@
     <a href="#Mask-horse" class="level-2">Horse run</a>
 
     <a href="#DIT" class="level-1">4. Wan-based MIVA (Sec. 4.4, Appendix D.3)</a>
-    
+
   </div>
 
   <div class="container">
-    
+
     <h1>Few-Shot-Based Modular Image-to-Video Adapter for Diffusion Models</h1>
-    <div class="author">Anonymous Author</div>
+    <div class="authors">
+      <span class="author">
+        Zhenhao Li<sup>*1</sup>
+      </span>,
+      <span class="author">
+        Shaohan Yi<sup>*2</sup>
+      </span>,
+      <span class="author">
+        Zheng Liu<sup>†1</sup>
+      </span>,
+      <span class="author">
+        Leonartinu Gao<sup>†3</sup>
+      </span>
+      <span class="author">
+        Minh Ngoc Le<sup>†4</sup>
+      </span>
+      <span class="author">
+        Ambrose Ling<sup>4</sup>
+      </span>
+      <span class="author">
+        Zhuoran Wang<sup>2</sup>
+      </span>
+      <span class="author">
+        Md Amirul Islam<sup>1</sup>
+      </span>
+      <span class="author">
+        Zhixiang Chi<sup>1</sup>
+      </span>
+      <span class="author">
+        Yuanhao Yu<sup>1</sup>
+      </span>
+    </div>
+
+    <div class="affiliations">
+      <span><sup>1</sup>Huawei Technologies of Canada</span>,
+      <span><sup>2</sup>University of Waterloo</span>,
+      <span><sup>3</sup>University of British Columbia</span>
+      <span><sup>4</sup>University of Toronto</span>
+    </div>
+
+    <div class="footnotes">
+      <span>†* Equal contribution. Shaohan, Leonartinus, Minh, Ambrose and Zhuoran did the work during internships at
+        Huawei.</span>
+      <span>* Corresponding author</span>
+    </div>
 
     <div class="section" id="Abstract">
       <h2>Abstract</h2>
-      <p>Diffusion models (DMs) have recently achieved impressive photorealism in image and video generation. However, their application to image animation remains limited, even when trained on large-scale datasets. Two primary challenges contribute to this: the high dimensionality of video signals leads to a scarcity of training data, causing DMs to favor memorization over prompt compliance when generating motion; additionally, DMs struggle to generalize to novel motion patterns not present in the training set, and fine-tuning them to learn such patterns, especially using limited training data, is still under-explored. To address these limitations, we propose Modular Image-to-Video Adapter (MIVA), a lightweight sub-network attachable to a pre-trained DM, each designed to capture a single motion pattern and scalable via parallelization. MIVAs can be efficiently trained on approximately ten samples using a single consumer-grade GPU. At inference time, users can specify motion by selecting one or multiple MIVAs, eliminating the need for prompt engineering. Extensive experiments demonstrate that MIVA enables more precise motion control while maintaining, or even surpassing, the generation quality of models trained on significantly larger datasets.</p>
+      <p>Diffusion models (DMs) have recently achieved impressive photorealism in image and video generation. However,
+        their application to image animation remains limited, even when trained on large-scale datasets. Two primary
+        challenges contribute to this: the high dimensionality of video signals leads to a scarcity of training data,
+        causing DMs to favor memorization over prompt compliance when generating motion; additionally, DMs struggle to
+        generalize to novel motion patterns not present in the training set, and fine-tuning them to learn such
+        patterns, especially using limited training data, is still under-explored. To address these limitations, we
+        propose Modular Image-to-Video Adapter (MIVA), a lightweight sub-network attachable to a pre-trained DM, each
+        designed to capture a single motion pattern and scalable via parallelization. MIVAs can be efficiently trained
+        on approximately ten samples using a single consumer-grade GPU. At inference time, users can specify motion by
+        selecting one or multiple MIVAs, eliminating the need for prompt engineering. Extensive experiments demonstrate
+        that MIVA enables more precise motion control while maintaining, or even surpassing, the generation quality of
+        models trained on significantly larger datasets.</p>
     </div>
 
     <div class="section" id="Single Motion Result">
       <h2>1-1. Single-motion-pattern: Our Benchmark Dataset (Sec. 4.2.1)</h2>
-      <p>Our benchmark evaluation datasets (single-motion-pattern and multi-motion-pattern) will be made publicly available soon.</p>
+      <p>Our benchmark evaluation datasets (single-motion-pattern and multi-motion-pattern) will be made publicly
+        available soon.</p>
       <h3 id="Single Motion Result-birds">Birds Flying (B)</h3>
 
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/B1.mp4" type="video/mp4">
       </video>
-  
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/B2.mp4" type="video/mp4">
       </video>
@@ -81,67 +139,67 @@
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/F2.mp4" type="video/mp4">
       </video>
-  
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/F1.mp4" type="video/mp4">
       </video>
 
       <h3 id="Single Motion Result-guitar">Guitar Playing (G)</h3>
-  
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/G1.mp4" type="video/mp4">
       </video>
-  
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/G2.mp4" type="video/mp4">
       </video>
 
       <h3 id="Single Motion Result-horse">Horse running (H)</h3>
-  
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/H1.mp4" type="video/mp4">
       </video>
-  
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/H2.mp4" type="video/mp4">
       </video>
 
       <h3 id="Single Motion Result-helicopter">Helicopter (P)</h3>
-  
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/P1.mp4" type="video/mp4">
       </video>
-  
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/P2.mp4" type="video/mp4">
       </video>
-  
+
       <h3 id="Single Motion Result-rain">Raining (R)</h3>
-  
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/R1.mp4" type="video/mp4">
       </video>
-  
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/R2.mp4" type="video/mp4">
       </video>
-  
+
       <h3 id="Single Motion Result-smile">Turning to smile (S)</h3>
-  
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/S1.mp4" type="video/mp4">
       </video>
-  
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/S2.mp4" type="video/mp4">
       </video>
-  
+
       <h3 id="Single Motion Result-waterfall">Waterfall (W)</h3>
-  
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/W1.mp4" type="video/mp4">
       </video>
-  
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/single/W2.mp4" type="video/mp4">
       </video>
@@ -150,7 +208,10 @@
 
     <div class="section">
       <h2 id="LAMP">1-2. Single-motion-pattern: LAMP Benchmark</h2>
-      <p>Additionally, we present the animation results on the synthesized-image-based benchmark dataset used in the LAMP paper. The dataset is available at <a href="https://github.com/RQ-Wu/LAMP/tree/master/benchmark">https://github.com/RQ-Wu/LAMP/tree/master/benchmark</a>.</p>
+      <p>Additionally, we present the animation results on the synthesized-image-based benchmark dataset used in the
+        LAMP paper. The dataset is available at <a
+          href="https://github.com/RQ-Wu/LAMP/tree/master/benchmark">https://github.com/RQ-Wu/LAMP/tree/master/benchmark</a>.
+      </p>
 
       <h3 id="LAMP-birds">Birds flying (B)</h3>
 
@@ -245,8 +306,10 @@
 
     <div class="section">
       <h2 id="Multi-weights">2-2. Multi-motion-pattern: Impact of MIVA Weights (Appendix D.1)</h2>
-      <p>The video below showcases the effect of adjusting the MIVA weights to further control the intensity of each constituent motion pattern.</p>
-      <p>Each row corresponds to a specific pair of MIVAs being combined, and each column corresponds to different weight combinations.</p>
+      <p>The video below showcases the effect of adjusting the MIVA weights to further control the intensity of each
+        constituent motion pattern.</p>
+      <p>Each row corresponds to a specific pair of MIVAs being combined, and each column corresponds to different
+        weight combinations.</p>
 
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/multi_weight_new_version.mp4" type="video/mp4">
@@ -257,13 +320,13 @@
       <h2 id="Camera">Camera Movement Result (Appendix D.2)</h2>
 
       <h3 id="Subject Motion (fireworks/waterfall) + Camera Pan Right">Pan right</h3>
-      
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/camera_movement/Pan right.mp4" type="video/mp4">
       </video>
 
       <h3 id="Subject Motion (fireworks/waterfall) + Camera Zoom Out">Zoom out</h3>
-      
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/camera_movement/Zoom out.mp4" type="video/mp4">
       </video>
@@ -274,19 +337,19 @@
       <h2 id="Mask Compare">3. Ablation Study: MIVA vs M-MIVA (Sec. 4.3)</h2>
 
       <h3 id="Mask-birds">Birds fly</h3>
-      
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/mask_compare/MMIVA compare birds.mp4" type="video/mp4">
       </video>
 
       <h3 id="Mask-firework">Firework</h3>
-      
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/mask_compare/MMIVA compare firework.mp4" type="video/mp4">
       </video>
 
       <h3 id="Mask-horse">Horse run</h3>
-      
+
       <video class="loop-video" width="1680" height="720" controls>
         <source src="assets/mask_compare/MMIVA compare horse.mp4" type="video/mp4">
       </video>
@@ -295,7 +358,7 @@
 
     <div class="section">
       <h2 id="DIT">4. Wan-based MIVA (Sec. 4.4, Appendix D.3)</h2>
-      
+
       <video class="loop-video" width="960" height="720" controls>
         <source src="assets/DIT result.mp4" type="video/mp4">
       </video>
@@ -303,14 +366,14 @@
 
     <script>
       const videos = document.querySelectorAll('.loop-video');
-    
+
       videos.forEach((video) => {
         let isLooping = false;
-  
+
         video.addEventListener('play', () => {
           isLooping = true;
         });
-  
+
         video.addEventListener('ended', () => {
           if (isLooping) {
             video.currentTime = 0;
@@ -321,4 +384,5 @@
     </script>
   </div>
 </body>
+
 </html>
